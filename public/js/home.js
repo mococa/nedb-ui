@@ -174,7 +174,7 @@ function setCode(){
         }
     })
 }
-$('.query-holder input').addClass('code')
+$('.query-holder input').addClass('c ode')
 setCode()
 function setClick() {
     $(function () {
