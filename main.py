@@ -29,15 +29,15 @@ def initNode():
 
 def killProcess(p):
     #LINUX USERS:
-        #subprocess.call(["kill", "-9", "%d" % int(p.pid+1)])
-        #subprocess.call(["kill", "-9", "%d" % int(p.pid)])
-        #os.system(f"freeport {port}")
+    subprocess.call(["kill", "-9", "%d" % int(p.pid+1)])
+    subprocess.call(["kill", "-9", "%d" % int(p.pid)])
+    os.system(f"freeport {port}")
     #WINDOWS USERS:        
-    command = f"netstat -ano | findstr {port}"
-    c = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr = subprocess.PIPE)
-    stdout, stderr = c.communicate()
-    pid = int(stdout.decode().strip().split(' ')[-1])
-    os.kill(pid, signal.SIGTERM)
+        #command = f"netstat -ano | findstr {port}"
+        #c = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr = subprocess.PIPE)
+        #stdout, stderr = c.communicate()
+        #pid = int(stdout.decode().strip().split(' ')[-1])
+        #os.kill(pid, signal.SIGTERM)
 
 
 window=webview.create_window('NeDB UI', geturl())
