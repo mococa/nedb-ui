@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeDB - UI Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="/jsontree.js"></script>
+    <link href="/jsontree.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="icon" type="image/png" href="/favicon"> 
+
+</head>
+
+<body>
+    <div class="left">
+        <div class="collections">
+            <div><span class="title">Collections</span><button>+</button></div>
+            <ul>
+                <% for(const file of (files)) {%>
+                    <li class="file-name"><span><%= file.name %></span><button>Delete</button></li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="options">
+            <span class="title">Options</span>
+            <ul>
+                <li>Save changes</li>
+                <li>Wipe data and save</li>
+            </ul>
+        </div>
+    </div>
+        
+    <div class="right">
+        <div class="query">
+            <span class="title">collection</span>
+            <div class="query-holder">
+                <span>Query:</span>
+                <input type='text'>
+                <button>Insert query</button>
+                <button>Delete query</button>
+            </div>
+        </div>
+        <div class="preview">
+            <span class="title">Records</span>
+            <div id="fileTree"> </div>
+        </div>
+        
+    </div>
+    
+</body>
+<script>
+    var files = <%- JSON.stringify(files) %>
+    //console.log(files__)
+</script>
+
+<script src="../js/home.js"></script>
+
+</html>

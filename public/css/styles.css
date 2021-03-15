@@ -1,0 +1,117 @@
+html{
+    height:-webkit-fill-available;
+}
+body {
+    background-color: #323332;
+    display: flex;
+    flex-flow: row;
+    position: relative;
+    height: -webkit-fill-available;
+}
+span{
+    color: white;
+}
+.context-menu-item span{
+    color:#0d0d0d;
+}
+.left{
+    background-color: #323332;
+    padding:20px;
+    width:400px;
+    display:flex;
+    flex-flow: column;
+    place-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.collections{
+    margin-top: 30px;
+    flex:0.9 0;
+    width: 100%;
+    background-color: #1e1e1e;
+    padding:30px;
+}
+.collections div{
+    display: flex;
+    padding-right: 10px;
+}
+.collections div span.title{
+    flex:1;
+}
+.collections div button{
+    width: 90px;
+    font-size: 26px;
+}
+.options{
+    margin-top: 30px;
+    flex:0.9 0;
+    width: 100%;
+    background-color: #1e1e1e;
+    padding:30px;
+    visibility: hidden;
+}
+.options ul li{
+    cursor: pointer;
+    padding:10px;
+}
+.options ul li:nth-of-type(2){
+    color:#e24545;
+}
+.title{
+    font-size: 32px;
+}
+.left ul {
+    padding-inline-start: 0px;
+    padding-block-start: 0px;
+    padding-left: 0px;
+    color:white;
+    list-style: none;
+    font-weight: bold;
+}
+li.file-name{
+    cursor:pointer;
+    padding:10px;
+    display:flex;
+}
+li.file-name span{
+    flex:1 0;
+}
+.right{
+    background-color: #222323;
+    padding:40px;
+    margin-left:400px;
+    display: flex;
+    flex-flow: column;
+    gap:10px;
+    width: -webkit-fill-available;
+}
+.preview span.title, .query span.title{
+    margin-bottom:10px;
+}
+.collections div, .options span.title{
+    margin-bottom:10px;
+}
+.query{
+    background-color: #141515;
+    padding:30px;
+    display: flex;
+    flex-flow: column;
+}
+.preview{
+    background-color: #141515;
+    padding:30px;
+    display: flex;
+    flex-flow: column;
+}
+#fileTree{
+    background-color: #0d0d0d;
+    padding:20px;
+}
+
+
+.jstBracket, .jstCollapse, .jstExpand {
+    color: white;
+    font-weight: bold;
+}
