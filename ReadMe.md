@@ -20,7 +20,7 @@ With this tool you can basically create, edit and delete collections and records
 ## Getting Started
 ### Setting up the WebView
 Well, the WebView is pretty much forked from [Pynosh](https://github.com/mococa/pynosh), another repo of mine. So all the requirements are there.
-But for the sake of your lazyness... :
+But for the sake of your laziness... :
 ##### First step:
 Run:  
 
