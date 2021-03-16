@@ -2,7 +2,7 @@ $.ajaxSetup({ contentType: "application/json; charset=utf-8" });
 var _file;
 $(function () {
     files.forEach(file => {
-        console.log(file)
+        //console.log(file)
         $('.file-name span').on('click', function (e) {
             $('.options').css('visibility', 'visible')
             if ($(this).text() == file.name) {
@@ -12,6 +12,8 @@ $(function () {
                 _file = file
                 $('.query .title').text(capitalize(file.name.split(/\.\w{2}/).join("")) + " collection")
                 $('#fileTree').html(jsonTree)
+                $('.jstTree').find('span').eq(1).remove()
+
                 setClick()
             }
 
@@ -79,7 +81,7 @@ $('.query-holder button').on('click', function () {
     var endpoint = ''
     $(this).index() == 2 ? endpoint = "addquery" : endpoint = "deletequery"
     $.post('/request/' + endpoint, JSON.stringify({
-        query: $('.query-holder input').val(),
+        query:jsonparser( $('.query-holder input').val()),
         fileName: _file.name,
         filePath: _file.path
     }), function (response) {
@@ -87,7 +89,7 @@ $('.query-holder button').on('click', function () {
             swal("Done", "Successfully saved", "success")
             location.reload()
         } else {
-            swal("Oops", "Something went wrong", "error")
+            swal("Oops", "Something went wrong. Make sure typed a valid JSON", "error")
         }
         console.log(response)
     }).fail(function () {
@@ -207,7 +209,7 @@ function setClick() {
                             if ($(this).text().includes('"')) {
                                 $(this).html('"' + newvalue + '"')
                             } else {
-                                $(this).html(newvalue)
+                                $(this).html(jsonparser(newvalue))
                             }
                         }
                     } else if (key == 'addcomma') {
@@ -254,6 +256,13 @@ function setClick() {
         })
     })
 }
+const jsonparser = (val)=>{
+    var retorno =val.
+  replace(
+  /\s?(\w+)\s?\:/g, "\"$1\"\:")
+  console.log(retorno)
+    return retorno
+  }
 function insertAtCare(input, val) {
     var cursorPos = $(input).prop('selectionStart');
     var v = $(input).val();
@@ -264,5 +273,59 @@ function insertAtCare(input, val) {
 
 }
 function capitalize(string) {
-    return string.substring(0, 1).toUpperCase() + string.substring(1, string.length).toLowerCase()
+    return string.substring(0, 1).toUpperCase() + string.substring(1, string.length)
 }
+function addItemFunc(el){
+    swal({
+      title:'Add your query',
+      text:'Enter your JSON data here',
+       icon:'warning',
+        content:{element:'input',
+         attributes:{className:'code swal-content__input'}}
+         ,buttons:[true,'Yes'] 
+        }).then(val=>{
+          if(val){
+            try{
+              JSON.parse( jsonparser(val) );
+              var e = document.createElement('span');
+              e.innerText=jsonparser(val)+',';
+              el.appendChild(e.firstChild);
+              document.getElementById('fileTree').innerHTML=JSONTree.create(
+                JSON.parse(document.getElementById('fileTree').innerText))
+                $('.jstTree').find('span').eq(1).remove()
+
+            }catch(err){
+              swal({title:'Error', text:"Sorry. That doesn't look like a JSON", icon:'error'})
+            }
+          }
+        });
+        setCode();
+  }
+  function delItemFunc(el){
+    swal({
+        title: 'Do you really want to delete this node (Not saving it yet) ?',
+        icon: 'warning',
+        buttons: [true, 'Yes']
+    }).then(val => {
+        if (val) {
+            var avo = el.parentElement.parentElement;
+            el.parentElement.remove();
+            var com = ($(avo.lastChild).children().eq(avo.lastChild.childElementCount - 1));
+            if ($(com).hasClass('jstComma')) {
+                com.remove()
+            }
+        }
+    });
+  }
+  function removeElementFunc(el){
+    var _nProperty = el.parentElement.getElementsByClassName('jstProperty')[0].innerText;
+    swal({
+        title: 'Do you really want to delete ' + _nProperty + '?',
+        icon: 'warning',
+        buttons: [true, 'Yes']
+    }).then(val => {
+        if (val) {
+            el.parentElement.remove()
+        }
+    });
+  }

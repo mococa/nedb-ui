@@ -1,6 +1,5 @@
 var fs = require('fs')
 var path = require('path');
-const { exec } = require("child_process");
 const express = require('express');
 const myRequests = require('./routers/requests')
 let rawdata = fs.readFileSync('manifest.json')
@@ -8,7 +7,7 @@ let manifest = JSON.parse(rawdata)
 
 const app = express()
 app.use(express.json({ limit: '50mb' }))
-const port = manifest.port || 8000
+const port = manifest.port || 5000
 let folderPath = manifest.folderPath
 
 
