@@ -25,10 +25,10 @@ span{
     top: 0;
     left: 0;
     right: 0;
+    gap:5px;
 }
 .collections{
-    margin-top: 30px;
-    flex:0.9 0;
+    flex:1 0;
     width: 100%;
     background-color: #1e1e1e;
     padding:30px;
@@ -45,11 +45,11 @@ span{
     font-size: 26px;
 }
 .options{
-    margin-top: 30px;
-    flex:0.9 0;
+    flex:1 0;
     width: 100%;
     background-color: #1e1e1e;
-    padding:30px;
+    padding: 30px 30px 0 30px;
+    margin-bottom: 30px;
     visibility: hidden;
 }
 .options ul li{
@@ -72,11 +72,14 @@ span{
 }
 li.file-name{
     cursor:pointer;
-    padding:10px;
+    padding: 10px 10px 10px 20px;
     display:flex;
+    direction: ltr;
+    text-align: start;
 }
 li.file-name span{
     flex:1 0;
+    max-width: 200px;
 }
 .right{
     background-color: #222323;
@@ -109,9 +112,26 @@ li.file-name span{
     background-color: #0d0d0d;
     padding:20px;
 }
-
-
 .jstBracket, .jstCollapse, .jstExpand {
     color: white;
     font-weight: bold;
 }
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0); 
+  }
+  scrollbar-track {
+    background: rgba(0,0,0,0);  
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #0d0d0d; 
+    border-radius:10px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

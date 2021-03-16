@@ -162,7 +162,7 @@ $('li.file-name button').on('click', function () {
 })
 
 
-function setCode(){
+function setCode() {
     $('.code').on('keypress', function (e) {
         if (e.key == '{') {
             insertAtCare($(this), "}")
@@ -210,7 +210,7 @@ function setClick() {
                                 $(this).html(newvalue)
                             }
                         }
-                    }else if(key == 'addcomma'){
+                    } else if (key == 'addcomma') {
                         $(this).parent().append('<span class="jstComma">,</span>')
                     }
                 }
@@ -259,9 +259,9 @@ function insertAtCare(input, val) {
     var v = $(input).val();
     var textBefore = v.substring(0, cursorPos);
     var textAfter = v.substring(cursorPos, v.length);
-
     $(input).val(textBefore + val + textAfter);
     $(input)[0].setSelectionRange(textBefore.length, textBefore.length);
+
 }
 function capitalize(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1, string.length).toLowerCase()

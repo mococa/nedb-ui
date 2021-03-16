@@ -11,4 +11,4 @@ done
 echo "location: $LOCATION and port: $PORT"
 cd $(dirname ${BASH_SOURCE[0]})
 tmp=$(mktemp)
-    jq --arg location "$LOCATION" --arg port "$PORT" '.port = $port| .folderPath = $location' ./manifest.json > "$tmp" && mv "$tmp" manifest.json
+    jq-win64 --arg location "$LOCATION" --arg port "$PORT" '.port = $port| .folderPath = $location' ./manifest.json > "$tmp" && mv "$tmp" manifest.json

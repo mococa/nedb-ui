@@ -25,7 +25,7 @@
     <div class="left">
         <div class="collections">
             <div><span class="title">Collections</span><button>+</button></div>
-            <ul>
+            <ul style="overflow: scroll;height: 300px;overflow-x: auto;direction: rtl;">
                 <% for(const file of (files)) {%>
                     <li class="file-name"><span><%= file.name %></span><button>Delete</button></li>
                 <% } %>
