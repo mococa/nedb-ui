@@ -5,13 +5,16 @@ The name is self-explanatory. It's a user interface for devs who use [NeDB](http
 ### *And what can I do with it?*
 With this tool you can basically create, edit and delete collections and records with better UX and a decent UI.
 ## Screenshots
+![Screenshot](./src/1.png)
+
 <details>
   <summary>GIFs</summary>
   The view of a Database:
-  ![Screenshot](src/2.gif)
-  <p></p>
+  
+  ![Screenshot](./src/2.gif)
   Creating and deleting records:
-  ![Screenshot](src/3.gif)
+  
+  ![Screenshot](./src/3.gif)
 </details>
 
 ## Getting Started
@@ -22,11 +25,11 @@ But for the sake of your lazyness... :
 Run:  
 
     pip install pywebview
-##### Done!
+#### Done!
 Now you only have to execute the `main.py` file after setting the `manifest.json` file as your needs.
 (Run `python ./main.py` or `python3 ./main.py` in the NeDB UI root folder )
 
-##### Alternatively:
+#### Alternatively:
 If you don't mind using your browser, you can simply set things up as shown in Setting Up, then running "node index.js" in the root folder.
 
 ## Setting Up
