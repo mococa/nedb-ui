@@ -6,14 +6,12 @@ The name is self-explanatory. It's a user interface for devs who use [NeDB](http
 With this tool you can basically create, edit and delete collections and records with better UX and a decent UI.
 ## Screenshots
 <details>
-  ![Screenshot](src/1.png)
   <summary>GIFs</summary>
   The view of a Database:
   ![Screenshot](src/2.gif)
   <p></p>
   Creating and deleting records:
   ![Screenshot](src/3.gif)
-  
 </details>
 
 ## Getting Started
